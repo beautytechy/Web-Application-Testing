@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -18,7 +17,7 @@ function App() {
       return currentStrike + 1;
     }
   }
-  
+
   const addBall = (currentBall) => {
     if (currentBall >= 3) {
       return 0;
@@ -27,10 +26,10 @@ function App() {
       return currentBall + 1;
     }
   };
-  
+
   const foul = (currentStrike) => {
-  
-    if (currentStrike < 2   )
+
+    if (currentStrike < 2)
       return currentStrike + 1;
     else {
       return (
@@ -38,53 +37,38 @@ function App() {
       )
     }
   }
-  
-  const hit = (current) => {
-    return current
+
+  const hit = (param) => {
+    return param = 0
+    
   }
-  const Display = () => {
   
-    return (
-      
-      <div>
+  return (
+
+    <div className="App">
+      <header className="App-header">
+   
+        <>
+        <div>
+          <h1>Dashboard</h1>
+          <button onClick={() => setStrikes(addStrike(strikes))}>Strike</button>
+          <button onClick={() => setBalls(addBall(balls))}>Ball</button>
+          <button onClick={() => setStrikes(foul(strikes))}>Foul</button>
+          <button onClick={() => setStrikes(hit(strikes), setBalls(hit(balls)))}>Hit</button>
+        </div>
+        <div>
         <h1>Display</h1>
         <p>Balls: {balls}</p>
         <p>Strikes: {strikes}</p>
       </div>
-    )
-  }
-
-
-
-  const Dashboard = () => {
-
-
-    return (
-      <>
-        <div>
-          <button onClick={() => setStrikes(addStrike(strikes))}>Strike</button>
-          <button onClick={() => setBalls(addBall(balls))}>Ball</button>
-          <button onClick={() => setStrikes(foul(strikes))}>Foul</button>
-          <button onClick={() => setStrikes(hit(strikes))}>Hit</button>
-        </div>
-     
       </>
-    )
-  }
-  return (
-  
-      <div className="App">
-        <header className="App-header">
-          Baseball Info
-          <Dashboard />
-          <Display />
-        </header>
+      </header>
 
 
 
 
-      </div>
-  
+    </div>
+
   );
 
 
